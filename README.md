@@ -37,9 +37,7 @@ npm install
 
 | Command | What it does |
 | --- | --- |
-| `npm test` | Runs the Clarinet-powered Vitest suite once (expected to surface `MaxStackDepthReached` on the withdraw call). |
-| `npm run test:report` | Same as above plus coverage/costs output for quick profiling. |
-| `npm run test:watch` | Watches `tests/**/*.ts` and `contracts/**/*.clar`, rerunning the suite automatically. |
+| `npm test` | Runs the Clarinet-powered Vitest suite once (expected to surface `MaxStackDepthReached` on the withdraw call for Clarity 4). |
 
 > Tip: if you see `429 Too Many Requests`, set `HIRO_API_KEY` and retry after ~60s.
 
