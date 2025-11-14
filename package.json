@@ -1,0 +1,25 @@
+{
+  "name": "clarity4-stack-test-tests",
+  "version": "1.0.0",
+  "description": "Run unit tests on this project.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "test:v4": "vitest run tests/trading-v4.test.ts",
+    "test:v3": "vitest run tests/trading-v3.test.ts",
+    "test:report": "vitest run -- --coverage --costs",
+    "test:watch": "chokidar \"tests/**/*.ts\" \"contracts/**/*.clar\" -c \"npm run test:report\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@stacks/clarinet-sdk": "^3.9.2",
+    "@stacks/transactions": "^7.2.0",
+    "@types/node": "^24.4.0",
+    "chokidar-cli": "^3.0.0",
+    "vite": "^5.1.4",
+    "vitest": "^1.3.1",
+    "vitest-environment-clarinet": "^3.0.1"
+  }
+}
