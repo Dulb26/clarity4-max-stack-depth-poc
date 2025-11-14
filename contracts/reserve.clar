@@ -6,16 +6,14 @@
 (define-constant ERR_INSUFFICIENT_BALANCE (err u105001))
 (define-constant sbtc-token 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token)
 
-;; -------------------------------------
-;; Transfer - NEW CLARITY 4 SYNTAX
-;; -------------------------------------
+(define-constant this-contract (as-contract tx-sender))
 
 (define-public (transfer
     (asset <ft>)
     (amount uint)
     (recipient principal)
   )
-  (let ((balance (try! (contract-call? asset get-balance current-contract))))
+  (let ((balance (try! (contract-call? asset get-balance this-contract))))
     (asserts! (>= balance amount) ERR_INSUFFICIENT_BALANCE)
     (print {
       action: "transfer",
@@ -25,11 +23,6 @@
         recipient: recipient,
       },
     })
-    (try! (as-contract? ((with-ft (contract-of asset) "*" amount))
-      (begin
-        (unwrap-panic (contract-call? asset transfer amount tx-sender recipient none))
-        true
-      )))
-    (ok true)
+    (ok (try! (as-contract (contract-call? asset transfer amount tx-sender recipient none))))
   )
 )

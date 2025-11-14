@@ -80,25 +80,25 @@ plan:
             contract-name: reserve
             emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
             path: contracts/reserve.clar
-            clarity-version: 4
+            clarity-version: 3
         - emulated-contract-publish:
             contract-name: zest-borrow-helper-trait-v1
             emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
             path: contracts/traits/zest-borrow-helper-trait-v1.clar
-            clarity-version: 4
+            clarity-version: 3
         - emulated-contract-publish:
             contract-name: zest-interface
             emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
             path: contracts/zest-interface.clar
-            clarity-version: 4
+            clarity-version: 3
         - emulated-contract-publish:
             contract-name: trading
             emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
             path: contracts/trading.clar
-            clarity-version: 4
+            clarity-version: 3
         - emulated-contract-publish:
             contract-name: vault-trait
             emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
             path: contracts/traits/vault-trait.clar
-            clarity-version: 4
-      epoch: "3.3"
+            clarity-version: 3
+      epoch: "3.2"
