@@ -84,9 +84,6 @@ Check out the `clarity-3` branch in this repo. It contains the same contracts up
 │   │   ├── constants.ts
 │   │   └── contracts.ts
 │   └── trading.test.ts
-├── ISSUE_SUMMARY.md
-├── SETUP_INSTRUCTIONS.md
-└── SETUP_COMPLETE.md
 ```
 
 ---
