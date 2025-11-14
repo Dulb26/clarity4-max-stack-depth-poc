@@ -31,8 +31,6 @@ cd clarity4-max-stack-depth-poc
 npm install
 ```
 
-> Tip: if you see `429 Too Many Requests`, set `HIRO_API_KEY` and retry after ~60s.
-
 ---
 
 ## Running the Suite
@@ -42,6 +40,8 @@ npm install
 | `npm test` | Runs the Clarinet-powered Vitest suite once (expected to surface `MaxStackDepthReached` on the withdraw call). |
 | `npm run test:report` | Same as above plus coverage/costs output for quick profiling. |
 | `npm run test:watch` | Watches `tests/**/*.ts` and `contracts/**/*.clar`, rerunning the suite automatically. |
+
+> Tip: if you see `429 Too Many Requests`, set `HIRO_API_KEY` and retry after ~60s.
 
 ### Expected Output
 
