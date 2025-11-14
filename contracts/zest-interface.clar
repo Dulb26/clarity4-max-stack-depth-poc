@@ -24,7 +24,6 @@
       }))
       (ok true)
     )
-    ;; do nothing if none
     (ok true)
   )
 )
@@ -56,14 +55,6 @@
   )
 )
 
-;; -------------------------------------
-;; CRITICAL FUNCTION - MIMICS REAL ZEST WITHDRAW
-;; -------------------------------------
-
-;; @desc Mimics dev-zest-interface-v0-1.clar::zest-withdraw
-;; This function has TWO as-contract? blocks which is where MaxStackDepth occurs
-;; Line 55 in real contract: calls borrow-helper-trait.withdraw
-;; Line 56 in real contract: transfers asset to reserve
 (define-public (zest-withdraw
     (borrow-helper-trait <borrow-helper>)
     (lp-trait <zest-vault>)
@@ -81,7 +72,6 @@
     (price-feed-2 (optional (buff 8192)))
   )
   (begin
-    ;; Write oracle feeds to Pyth (mimics lines 53-54 in dev-zest-interface-v0-1.clar)
     (try! (write-feed price-feed-1))
     (try! (write-feed price-feed-2))
     (try! (as-contract (contract-call? borrow-helper-trait withdraw lp-trait pool-reserve

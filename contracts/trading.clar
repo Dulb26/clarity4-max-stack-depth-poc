@@ -1,6 +1,4 @@
-;; Trading contract - Clarity 4 (epoch 3.3)
-;; Mimics: dev-trading-v0-1.clar zest-withdraw-fund function
-;; Uses NEW as-contract? syntax
+;; Trading contract
 
 (use-trait borrow-helper .zest-borrow-helper-trait-v1.zest-borrow-helper-trait)
 (use-trait ft 'SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.ft-trait.ft-trait)
@@ -12,12 +10,6 @@
 (define-constant ERR_INVALID_AMOUNT (err u120001))
 (define-constant ERR_EMPTY_CLAIM_IDS (err u120002))
 
-;; -------------------------------------
-;; Main Trading Operation - MIMICS REAL FLOW
-;; -------------------------------------
-
-;; @desc Mimics dev-trading-v0-1.clar::zest-withdraw-fund
-;; This is the function that hits MaxStackDepth in Clarity 4
 (define-public (zest-withdraw-fund
     (borrow-helper-trait <borrow-helper>)
     (lp-sbtc-trait <zest-vault>)
@@ -39,7 +31,6 @@
     (asserts! (> collateral-amount u0) ERR_INVALID_AMOUNT)
     (asserts! (> (len claim-ids) u0) ERR_EMPTY_CLAIM_IDS)
 
-    ;; Step 1: Withdraw sBTC collateral from Zest (THIS IS WHERE STACK DEPTH GROWS)
     (try! (contract-call? .zest-interface zest-withdraw borrow-helper-trait
       lp-sbtc-trait pool-reserve-data sbtc-token-trait oracle-trait
       collateral-amount assets incentives-trait price-feed-1 price-feed-2
