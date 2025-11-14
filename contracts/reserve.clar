@@ -6,24 +6,30 @@
 (define-constant ERR_INSUFFICIENT_BALANCE (err u105001))
 (define-constant sbtc-token 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token)
 
-;;-------------------------------------
+;; -------------------------------------
 ;; Transfer - NEW CLARITY 4 SYNTAX
-;;-------------------------------------
+;; -------------------------------------
 
-(define-public (transfer (asset <ft>) (amount uint) (recipient principal))
-  (let (
-    (balance (try! (contract-call? asset get-balance current-contract)))
+(define-public (transfer
+    (asset <ft>)
+    (amount uint)
+    (recipient principal)
   )
+  (let ((balance (try! (contract-call? asset get-balance current-contract))))
     (asserts! (>= balance amount) ERR_INSUFFICIENT_BALANCE)
-    (print { action: "transfer", data: { asset: asset, amount: amount, recipient: recipient }})
-    ;; NEW SYNTAX: as-contract? with explicit allowances (with-ft)
-    ;; Note: as-contract? body cannot return response, so we use begin + unwrap
+    (print {
+      action: "transfer",
+      data: {
+        asset: asset,
+        amount: amount,
+        recipient: recipient,
+      },
+    })
     (try! (as-contract? ((with-ft (contract-of asset) "*" amount))
       (begin
         (unwrap-panic (contract-call? asset transfer amount tx-sender recipient none))
         true
-      )
-    ))
+      )))
     (ok true)
   )
 )

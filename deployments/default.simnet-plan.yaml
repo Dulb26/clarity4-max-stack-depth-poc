@@ -64,34 +64,6 @@ plan:
     - id: 0
       transactions:
         - emulated-contract-publish:
-            contract-name: reserve-v3
-            emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            path: contracts/clarity3/reserve-v3.clar
-            clarity-version: 3
-        - emulated-contract-publish:
-            contract-name: zest-borrow-helper-trait-v1-v3
-            emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            path: contracts/clarity3/traits/zest-borrow-helper-trait-v1.clar
-            clarity-version: 3
-        - emulated-contract-publish:
-            contract-name: zest-interface-v3
-            emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            path: contracts/clarity3/zest-interface-v3.clar
-            clarity-version: 3
-        - emulated-contract-publish:
-            contract-name: trading-v3
-            emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            path: contracts/clarity3/trading-v3.clar
-            clarity-version: 3
-        - emulated-contract-publish:
-            contract-name: vault-trait-v3
-            emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            path: contracts/clarity3/traits/vault-trait.clar
-            clarity-version: 3
-      epoch: "3.0"
-    - id: 1
-      transactions:
-        - emulated-contract-publish:
             contract-name: wormhole-traits-v2
             emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
             path: contracts/oracle/wormhole/wormhole-traits-v2.clar
@@ -102,31 +74,31 @@ plan:
             path: contracts/oracle/wormhole/wormhole-core-v4.clar
             clarity-version: 3
       epoch: "3.1"
-    - id: 2
+    - id: 1
       transactions:
         - emulated-contract-publish:
-            contract-name: reserve-v4
+            contract-name: reserve
             emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            path: contracts/clarity4/reserve-v4.clar
+            path: contracts/reserve.clar
             clarity-version: 4
         - emulated-contract-publish:
-            contract-name: zest-borrow-helper-trait-v1-v4
+            contract-name: zest-borrow-helper-trait-v1
             emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            path: contracts/clarity4/traits/zest-borrow-helper-trait-v1.clar
+            path: contracts/traits/zest-borrow-helper-trait-v1.clar
             clarity-version: 4
         - emulated-contract-publish:
-            contract-name: zest-interface-v4
+            contract-name: zest-interface
             emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            path: contracts/clarity4/zest-interface-v4.clar
+            path: contracts/zest-interface.clar
             clarity-version: 4
         - emulated-contract-publish:
-            contract-name: trading-v4
+            contract-name: trading
             emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            path: contracts/clarity4/trading-v4.clar
+            path: contracts/trading.clar
             clarity-version: 4
         - emulated-contract-publish:
-            contract-name: vault-trait-v4
+            contract-name: vault-trait
             emulated-sender: SP1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRCBGD7R
-            path: contracts/clarity4/traits/vault-trait.clar
+            path: contracts/traits/vault-trait.clar
             clarity-version: 4
       epoch: "3.3"

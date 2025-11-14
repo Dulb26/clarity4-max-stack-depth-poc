@@ -1,16 +1,9 @@
 import { deployer } from "./constants";
 
 export const contract = {
-  v4: {
-    reserve:             `${deployer}.reserve-v4`,
-    zest_interface:      `${deployer}.zest-interface-v4`,
-    trading:             `${deployer}.trading-v4`,
-  },
-  v3: {
-    reserve:             `${deployer}.reserve-v3`,
-    zest_interface:      `${deployer}.zest-interface-v3`,
-    trading:             `${deployer}.trading-v3`,
-  },
+  reserve:             `${deployer}.reserve`,
+  zest_interface:      `${deployer}.zest-interface`,
+  trading:             `${deployer}.trading`,
 }
 
 export const mainnetContracts = {
@@ -42,5 +35,4 @@ export const mainnetContracts = {
 }
 
 // Asset identifiers for hBTC protocol
-export const CURRENT_TEST_CONTRACT_V3 = contract.v3;
-export const CURRENT_TEST_CONTRACT_V4 = contract.v4;
+export const CURRENT_TEST_CONTRACT = contract;
