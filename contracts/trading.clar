@@ -30,12 +30,10 @@
   (begin
     (asserts! (> collateral-amount u0) ERR_INVALID_AMOUNT)
     (asserts! (> (len claim-ids) u0) ERR_EMPTY_CLAIM_IDS)
-
     (try! (contract-call? .zest-interface zest-withdraw borrow-helper-trait
       lp-sbtc-trait pool-reserve-data sbtc-token-trait oracle-trait
       collateral-amount assets incentives-trait price-feed-1 price-feed-2
     ))
-
     (print {
       action: "zest-withdraw-fund-claims",
       data: { collateral-amount: collateral-amount },
