@@ -43,6 +43,12 @@ npm install
 | `npm run test:report` | Same as above plus coverage/costs output for quick profiling. |
 | `npm run test:watch` | Watches `tests/**/*.ts` and `contracts/**/*.clar`, rerunning the suite automatically. |
 
+### Expected Output
+
+![Clarity 3 Pass](tests/assets/clarity-3-pass.png)
+
+![Clarity 4 Fail](tests/assets/clarity-4-fail.png)
+
 ---
 
 ## Clarity 3 Reference Branch
