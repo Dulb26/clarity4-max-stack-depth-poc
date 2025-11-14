@@ -9,7 +9,7 @@ import {
   mainnetContracts,
 } from './settings/contracts';
 
-describe('MaxStackDepth with Real Mainnet Contracts - Clarity 4', () => {
+describe('MaxStackDepth with Real Mainnet Contracts', () => {
   it('should demonstrate MaxStackDepth error in Clarity 4 with zest-withdraw', async () => {
     // Fund wallets with sBTC for testing
     await fundTestWalletsWithSBTC();
