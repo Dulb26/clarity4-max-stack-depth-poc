@@ -38,11 +38,7 @@
   (begin
     (asserts! (> amount u0) ERR_INVALID_AMOUNT)
     (try! (contract-call? .reserve transfer asset-trait amount current-contract))
-    (try! (as-contract? ((with-ft (contract-of asset-trait) "*" amount))
-      (try! (contract-call? borrow-helper-trait supply lp-trait pool-reserve
-        asset-trait amount current-contract referral incentives-trait
-      ))
-    ))
+    (try! (as-contract? ((with-ft (contract-of asset-trait) "*" amount)) (try! (contract-call? borrow-helper-trait supply lp-trait pool-reserve asset-trait amount current-contract referral incentives-trait))))
     (print {
       action: "zest-supply",
       data: {
@@ -73,28 +69,9 @@
   (begin
     (try! (write-feed price-feed-1))
     (try! (write-feed price-feed-2))
-    (try! (as-contract? ((with-all-assets-unsafe))
-      (begin
-        (unwrap-panic (contract-call? borrow-helper-trait withdraw lp-trait pool-reserve
-          asset-trait oracle-trait amount current-contract assets
-          incentives-trait none
-        ))
-        true
-      )))
-    (try! (as-contract? ((with-all-assets-unsafe))
-      (begin
-        (unwrap-panic (contract-call? asset-trait transfer amount current-contract .reserve
-          none
-        ))
-        true
-      )))
-    (print {
-      action: "zest-withdraw",
-      data: {
-        asset: asset-trait,
-        amount: amount,
-      },
-    })
+    (try! (as-contract? ((with-all-assets-unsafe)) (try! (contract-call? borrow-helper-trait withdraw lp-trait pool-reserve asset-trait oracle-trait amount current-contract assets incentives-trait none))))
+    (try! (as-contract? ((with-all-assets-unsafe)) (try! (contract-call? asset-trait transfer amount current-contract .reserve none))))
+    (print { action: "zest-withdraw", user: contract-caller, data: { borrow-helper: borrow-helper-trait, asset: asset-trait, amount: amount } })
     (ok true)
   )
 )
