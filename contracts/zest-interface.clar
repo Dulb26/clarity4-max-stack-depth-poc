@@ -38,7 +38,11 @@
   (begin
     (asserts! (> amount u0) ERR_INVALID_AMOUNT)
     (try! (contract-call? .reserve transfer asset-trait amount current-contract))
-    (try! (as-contract? ((with-ft (contract-of asset-trait) "*" amount)) (try! (contract-call? borrow-helper-trait supply lp-trait pool-reserve asset-trait amount current-contract referral incentives-trait))))
+    (try! (as-contract? ((with-ft (contract-of asset-trait) "*" amount))
+      (try! (contract-call? borrow-helper-trait supply lp-trait pool-reserve
+        asset-trait amount current-contract referral incentives-trait
+      ))
+    ))
     (print {
       action: "zest-supply",
       data: {
