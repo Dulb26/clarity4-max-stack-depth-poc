@@ -1,5 +1,4 @@
-;; Reserve contract - Clarity 4 (epoch 3.3)
-;; Uses NEW as-contract? syntax with explicit allowances
+;; Reserve contract
 
 (use-trait ft 'SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.ft-trait.ft-trait)
 

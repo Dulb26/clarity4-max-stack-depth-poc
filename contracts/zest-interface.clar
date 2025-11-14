@@ -40,11 +40,7 @@
   )
   (begin
     (asserts! (> amount u0) ERR_INVALID_AMOUNT)
-
-    ;; Step 1: Transfer asset from reserve to this contract (zest-interface)
-    ;; This mimics line 32: (contract-call? .dev-reserve transfer asset-trait amount current-contract)
-    (try! (contract-call? .reserve transfer asset-trait amount current-contract))
-
+    (try! (contract-call? .reserve transfer asset-trait amount this-contract))
     (try! (as-contract (contract-call? borrow-helper-trait supply lp-trait pool-reserve asset-trait
       amount this-contract referral incentives-trait
     )))
@@ -92,7 +88,7 @@
       asset-trait oracle-trait amount this-contract assets incentives-trait
       none
     )))
-    (try! (as-contract (contract-call? asset-trait transfer amount this-contract reserve none)))
+    (try! (as-contract (contract-call? asset-trait transfer amount this-contract .reserve none)))
     (print {
       action: "zest-withdraw",
       data: {
