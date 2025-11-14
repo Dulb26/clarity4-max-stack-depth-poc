@@ -45,8 +45,10 @@ npm install
 
 ### Expected Output
 
+Clarity 3 - Test Pass
 ![Clarity 3 Pass](tests/assets/clarity-3-pass.png)
 
+Clarity 4 - Test Fail
 ![Clarity 4 Fail](tests/assets/clarity-4-fail.png)
 
 ---
