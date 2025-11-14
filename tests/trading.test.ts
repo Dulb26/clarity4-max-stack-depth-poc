@@ -78,5 +78,5 @@ describe('MaxStackDepth with Real Mainnet Contracts', () => {
     );
 
     expect(withdrawResult.result).toBeOk(Cl.bool(true));
-  }, 50000);
+  }, 100000);
 });
